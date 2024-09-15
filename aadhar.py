@@ -20,7 +20,7 @@ def text_clean(text):
 
 
 def find_keyword_higlight(TestFileName):
-
+    pytesseract.tesseract_cmd = 'tesseract.exe'
     if imghdr.what(TestFileName) == None:
         images = convert_from_path(TestFileName, dpi=400)
         if images:
