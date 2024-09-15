@@ -28,7 +28,7 @@ def find_keyword_higlight(TestFileName):
             img= np.array(images[0])
             #Convert to BGR for OpenCV compatibility
            # img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-    else:
+    #else:
        # img =  cv2.imread(TestFileName)
     #images = convert_from_path(TestFileName, dpi=00)
     #img = np.array(images[0])
