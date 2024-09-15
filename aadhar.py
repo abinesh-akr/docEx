@@ -9,7 +9,7 @@ import pytesseract
 from pytesseract import Output
 import imghdr
 
-#.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Update this path
+pytesseract.tesseract_cmd = 'tesseract.exe'  # Update this path
 custom_oem_psm_config = r'-l eng+tam+hin+tel --oem 1 '
 
 l=[]
