@@ -160,21 +160,21 @@ if aadhar_certificate is not None and aadhar_certificate != st.session_state["pr
         d=datetime.datetime(int(dobb.split('/')[2]),int(dobb.split('/')[1]),int(dobb.split('/')[0]))
         if (d.year-dob.year)!=0 or (d.month-dob.month)!=0 or (d.day-dob.day)!=0 :
             print(str(dob))
-            st.session_state['adob']='** DOB mismatch [aadhar] '
+            st.session_state['adob']='** DOB mismatch [aadhar Dob : '+dobb+'] '
         else:
             st.session_state['adob']=''
             st.session_state['age']= str(datetime.datetime.today().year - d.year)
         print('['+gen+"]")
         print('['+gender+']')
         if gender!=gen: 
-            st.session_state['agen']='** GENDER mismatch [aadhar] '
+            st.session_state['agen']='** GENDER mismatch [aadhar gender : '+gen] '
             if(s==0.0):
                 st.session_state['gen']=gen
         else:
              st.session_state['agen']=''
         ni,s=match(father,f)
         if not ni :
-            st.session_state['af']='** FATHER mismatch [aadhar] [ similarity : '+s+' ]'
+            st.session_state['af']='** FATHER mismatch [aadhar] [ similarity : '+f+' ]'
         else:
              st.session_state['af']=''
     else:
