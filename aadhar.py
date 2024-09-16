@@ -8,7 +8,7 @@ from unidecode import unidecode
 import pytesseract
 from pytesseract import Output
 import imghdr
-
+import os
 #.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Update this path
 custom_oem_psm_config = r'-l eng+tam+hin+tel --oem 1 '
 
@@ -20,7 +20,10 @@ def text_clean(text):
 
 
 def find_keyword_higlight(TestFileName):
-
+    if os.name == 'nt':  # For Windows
+        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    else:  # For Linux-based environments
+        pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'    
     if imghdr.what(TestFileName) == None:
         images = convert_from_path(TestFileName, dpi=400)
         if images:
