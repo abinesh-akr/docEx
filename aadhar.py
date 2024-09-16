@@ -1,5 +1,5 @@
 ''' PREPROCESSING '''
-#import cv2                                 # [Open-source] Image Processing s/w  
+import cv2                                 # [Open-source] Image Processing s/w  
 import numpy as np                         # Used for manipulating Images
 from pdf2image import convert_from_path    # Convert the entire PDF to images                    
 import re
@@ -31,10 +31,10 @@ def find_keyword_higlight(TestFileName):
             img= np.array(images[0])
             #Convert to BGR for OpenCV compatibility
            # img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-    #else:
-       # img =  cv2.imread(TestFileName)
+    else:
+        img =  cv2.imread(TestFileName)
     #images = convert_from_path(TestFileName, dpi=00)
-    #img = np.array(images[0])
+    img = np.array(images[0])
  
     x1,y1,z=img.shape
     text=''
