@@ -151,7 +151,7 @@ if aadhar_certificate is not None and aadhar_certificate != st.session_state["pr
         st.session_state['nv']=''
         ni,s=match(n,name)
         if not ni :
-            st.session_state['an']='** NAME mismatch [aadhar] [ similarity : '+s+' ]'
+            st.session_state['an']='** NAME mismatch [aadhar name : '+n+'] [ similarity : '+s+' ]'
             if s==0.0:
                  st.session_state['name']=n
 
