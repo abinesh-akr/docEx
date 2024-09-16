@@ -25,7 +25,7 @@ def find_keyword_higlight(TestFileName):
     else:  # For Linux-based environments
         pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'    
     if imghdr.what(TestFileName) == None:
-        images = convert_from_path(TestFileName, dpi=600)
+        images = convert_from_path(TestFileName, dpi=300)
         if images:
             # Show dimensions of the first page
             img= np.array(images[0])
