@@ -34,7 +34,7 @@ def find_keyword_higlight(TestFileName):
     else:
         img =  cv2.imread(TestFileName)
     #images = convert_from_path(TestFileName, dpi=00)
-    img = np.array(images[0])
+    #img = np.array(images[0])
  
     x1,y1,z=img.shape
     text=''
