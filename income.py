@@ -1,15 +1,15 @@
 ''' PREPROCESSING '''
-#import cv2                                 # [Open-source] Image Processing s/w  
+import cv2                                 # [Open-source] Image Processing s/w  
 import numpy as np                         # Used for manipulating Images
 from pdf2image import convert_from_path    # Convert the entire PDF to images                    
 import re
 import sys
-
+from unidecode import unidecode
 import pytesseract
 from pytesseract import Output
 import imghdr
-
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Update this path
+import os
+#.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Update this path
 custom_oem_psm_config = r'-l eng+tam+hin+tel --oem 1 '
 
 l=[]
@@ -20,16 +20,19 @@ def text_clean(text):
 
 
 def find_keyword_higlight(TestFileName):
-    print('start')
+    if os.name == 'nt':  # For Windows
+        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    else:  # For Linux-based environments
+        pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'    
     if imghdr.what(TestFileName) == None:
-        images = convert_from_path(TestFileName, dpi=200)
+        images = convert_from_path(TestFileName, dpi=300)
         if images:
             # Show dimensions of the first page
             img= np.array(images[0])
             #Convert to BGR for OpenCV compatibility
-            img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
- #   else:
-  #      img =  cv2.imread(TestFileName)
+           # img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    else:
+        img =  cv2.imread(TestFileName)
     #images = convert_from_path(TestFileName, dpi=00)
     #img = np.array(images[0])
  
