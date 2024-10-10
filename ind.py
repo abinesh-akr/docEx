@@ -9,7 +9,7 @@ from gate import process_gate
 import Levenshtein
 
 # Streamlit Form
-st.title("  DRDO - Registration Form")
+st.title("      Registration Form")
 if "name" not in st.session_state:
         st.session_state["name"] = ""
 if "an" not in st.session_state:
