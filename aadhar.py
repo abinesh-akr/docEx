@@ -1,5 +1,5 @@
 ''' PREPROCESSING '''
-import cv2                                 # [Open-source] Image Processing s/w  
+#import cv2                                 # [Open-source] Image Processing s/w  
 import numpy as np                         # Used for manipulating Images
 from pdf2image import convert_from_path    # Convert the entire PDF to images                    
 import re
