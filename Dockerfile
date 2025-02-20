@@ -11,4 +11,4 @@ RUN pip install opencv-python
 COPY . /app
 WORKDIR /app
 
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "ind.py"]
